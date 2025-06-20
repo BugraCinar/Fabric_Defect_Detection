@@ -1,0 +1,22 @@
+- **P3 PPM Dosya Okuma:** Görseller RGB değerlerine ayrıştırılarak belleğe yüklendi.
+- **Blok Tabanlı Karşılaştırma:** Görsel 10x10'luk bloklara bölünerek her bloğun referansa göre ortalama renk farkı hesaplandı.
+- **Öklidyen Mesafe:** RGB farkları `sqrt(dr² + dg² + db²)` formülü ile hesaplandı.
+- **Defect Ratio:** Kusurlu blokların toplam blok sayısına oranı üzerinden karar verildi (eşik: %1).
+- **Klasör Tabanlı İşleme:** `test/groupX` yapısındaki her klasör için işlemler tekrarlanır.
+- **Çıktı Yönetimi:** Her grup için `outputs/` klasörüne sonuçlar yazıldı.
+
+
+- Tek çekirdekli, lineer bir işleyişe sahiptir.
+- `std::vector`, `std::filesystem`, `std::set`, `ifstream` gibi temel STL bileşenleri kullanıldı.
+- Kod yeniden kullanılabilir olacak şekilde modülerleştirildi:
+  - `readPPM(...)` fonksiyonu dosya okumayı soyutlar.
+  - `blockDifference(...)` blok karşılaştırmalarını soyutlar.
+
+
+
+
+- Çok çekirdekli işleme (parallelism) ve polymorphism kullanılmadı.
+- `const`, `constexpr` gibi optimize edici ifadeler minimum düzeyde.
+- Klasör işleme kısmında hala tekrar eden döngü sorunu yer yer gözlemlenebilir.
+
+

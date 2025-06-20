@@ -1,0 +1,31 @@
+==47379== Memcheck, a memory error detector
+==47379== Copyright (C) 2002-2022, and GNU GPL'd, by Julian Seward et al.
+==47379== Using Valgrind-3.22.0 and LibVEX; rerun with -h for copyright info
+==47379== Command: ./version2_O3
+==47379== Parent PID: 47158
+==47379== 
+==47379== 
+==47379== Process terminating with default action of signal 2 (SIGINT)
+==47379==    at 0x4C31A5F: read (read.c:26)
+==47379==    by 0x496315E: std::__basic_file<char>::xsgetn(char*, long) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.33)
+==47379==    by 0x49935DF: std::basic_filebuf<char, std::char_traits<char> >::underflow() (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.33)
+==47379==    by 0x49A1051: std::istream::sentry::sentry(std::istream&, bool) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.33)
+==47379==    by 0x49A131F: std::istream::operator>>(int&) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.33)
+==47379==    by 0x114B05: readPPM(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::vector<Pixel, std::allocator<Pixel> >&, int&, int&) (in /home/bugra/Desktop/version2/version2_O3)
+==47379==    by 0x10D137: main (in /home/bugra/Desktop/version2/version2_O3)
+==47379== 
+==47379== HEAP SUMMARY:
+==47379==     in use at exit: 49,899,787 bytes in 21 blocks
+==47379==   total heap usage: 153 allocs, 132 frees, 224,192,041 bytes allocated
+==47379== 
+==47379== LEAK SUMMARY:
+==47379==    definitely lost: 0 bytes in 0 blocks
+==47379==    indirectly lost: 0 bytes in 0 blocks
+==47379==      possibly lost: 0 bytes in 0 blocks
+==47379==    still reachable: 49,899,787 bytes in 21 blocks
+==47379==         suppressed: 0 bytes in 0 blocks
+==47379== Reachable blocks (those to which a pointer was found) are not shown.
+==47379== To see them, rerun with: --leak-check=full --show-leak-kinds=all
+==47379== 
+==47379== For lists of detected and suppressed errors, rerun with: -s
+==47379== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)

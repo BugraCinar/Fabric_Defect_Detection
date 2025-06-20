@@ -1,0 +1,11 @@
+
+
+AVX2 ile hızlandırılmış fark hesaplama:
+- __m256i refVec = _mm256_loadu_si256(...);
+- __m256i testVec = _mm256_loadu_si256(...);
+- __m256i diff = _mm256_subs_epu8(refVec, testVec);
+
+Açıklama:
+- loadu_si256: Bellekten 256 bitlik (32 byte) veriyi yükler.
+- subs_epu8: Piksel değerleri arasında fark alır.
+- maddubs_epi16 ve madd_epi16: Farkların karesini alır ve toplam farkı hesaplar.

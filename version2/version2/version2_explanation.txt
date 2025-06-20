@@ -1,0 +1,6 @@
+
+
+- `std::filesystem` kullanılarak dosya yönetimi modernleştirildi.
+- Kod genel olarak okunabilirlik ve hata kontrolü açısından daha düzenli hale getirildi.
+- Performans açısından, blok karşılaştırması ile lokal farklar dikkate alınarak daha hassas analiz yapıldı.
+

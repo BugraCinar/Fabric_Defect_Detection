@@ -1,0 +1,12 @@
+
+- Cache uyumsuzluğu
+- Kod şişmesi
+- Instruction cache taşmaları olabilir.
+
+- time -v ./version2_X → Kullanıcı, sistem, gerçek zamanları ölçmek için
+- valgrind --leak-check=full → Bellek sızıntılarını gözlemlemek için
+- mpstat -P ALL 1 → Çekirdek bazlı CPU izleme
+- htop → Gerçek zamanlı CPU/RAM kontrolü
+- echo 3 > /proc/sys/vm/drop_caches → RAM cache temizliği
+
+

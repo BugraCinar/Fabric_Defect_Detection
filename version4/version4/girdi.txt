@@ -1,0 +1,11 @@
+g++ -O3 -mavx2 -std=c++17 -o version4_O3 version4.cpp group_worker.cpp thread_worker.cpp readPPM_binary.cpp globals.cpp -pthread
+
+
+/usr/bin/time -v -o analyze/version4_time_O1.txt ./version4_O1
+
+
+echo "[O3 - VALGRIND REPORT]" > analyze/version3_valgrind_O3.txt
+valgrind --leak-check=full --log-file=analyze/version3_valgrind_O3.txt ./version3_O3
+
+echo "[O3 - GPROF REPORT]" > analyze/version3_gprof_O3.txt
+gprof ./version3_O3 gmon.out > analyze/version3_gprof_O3.txt

@@ -1,0 +1,66 @@
+==32088== Memcheck, a memory error detector
+==32088== Copyright (C) 2002-2022, and GNU GPL'd, by Julian Seward et al.
+==32088== Using Valgrind-3.22.0 and LibVEX; rerun with -h for copyright info
+==32088== Command: ./version3_fastest
+==32088== Parent PID: 3815
+==32088== 
+==32088== 
+==32088== Process terminating with default action of signal 2 (SIGINT)
+==32088==    at 0x4BAED71: __futex_abstimed_wait_common64 (futex-internal.c:57)
+==32088==    by 0x4BAED71: __futex_abstimed_wait_common (futex-internal.c:87)
+==32088==    by 0x4BAED71: __futex_abstimed_wait_cancelable64 (futex-internal.c:139)
+==32088==    by 0x4BB47A2: __pthread_clockjoin_ex (pthread_join_common.c:102)
+==32088==    by 0x4956E32: std::thread::join() (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.33)
+==32088==    by 0x10C854: main (in /home/bugra/Desktop/version3/version3_fastest)
+==32088== 
+==32088== HEAP SUMMARY:
+==32088==     in use at exit: 285,598,704 bytes in 9,127 blocks
+==32088==   total heap usage: 25,754 allocs, 16,627 frees, 287,096,136 bytes allocated
+==32088== 
+==32088== 608 bytes in 2 blocks are possibly lost in loss record 14 of 43
+==32088==    at 0x484D953: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==32088==    by 0x40145AB: calloc (rtld-malloc.h:44)
+==32088==    by 0x40145AB: allocate_dtv (dl-tls.c:370)
+==32088==    by 0x40145AB: _dl_allocate_tls (dl-tls.c:629)
+==32088==    by 0x4BB3616: allocate_stack (allocatestack.c:429)
+==32088==    by 0x4BB3616: pthread_create@@GLIBC_2.34 (pthread_create.c:655)
+==32088==    by 0x4956EB0: std::thread::_M_start_thread(std::unique_ptr<std::thread::_State, std::default_delete<std::thread::_State> >, void (*)()) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.33)
+==32088==    by 0x10CBD2: main (in /home/bugra/Desktop/version3/version3_fastest)
+==32088== 
+==32088== 608 bytes in 2 blocks are possibly lost in loss record 15 of 43
+==32088==    at 0x484D953: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==32088==    by 0x40145AB: calloc (rtld-malloc.h:44)
+==32088==    by 0x40145AB: allocate_dtv (dl-tls.c:370)
+==32088==    by 0x40145AB: _dl_allocate_tls (dl-tls.c:629)
+==32088==    by 0x4BB3616: allocate_stack (allocatestack.c:429)
+==32088==    by 0x4BB3616: pthread_create@@GLIBC_2.34 (pthread_create.c:655)
+==32088==    by 0x4956EB0: std::thread::_M_start_thread(std::unique_ptr<std::thread::_State, std::default_delete<std::thread::_State> >, void (*)()) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.33)
+==32088==    by 0x1114BC: groupWorker(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (in /home/bugra/Desktop/version3/version3_fastest)
+==32088==    by 0x4956DB3: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.33)
+==32088==    by 0x4BB2AA3: start_thread (pthread_create.c:447)
+==32088==    by 0x4C3FA33: clone (clone.S:100)
+==32088== 
+==32088== 2,432 bytes in 8 blocks are possibly lost in loss record 20 of 43
+==32088==    at 0x484D953: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==32088==    by 0x40145AB: calloc (rtld-malloc.h:44)
+==32088==    by 0x40145AB: allocate_dtv (dl-tls.c:370)
+==32088==    by 0x40145AB: _dl_allocate_tls (dl-tls.c:629)
+==32088==    by 0x4BB3616: allocate_stack (allocatestack.c:429)
+==32088==    by 0x4BB3616: pthread_create@@GLIBC_2.34 (pthread_create.c:655)
+==32088==    by 0x4956EB0: std::thread::_M_start_thread(std::unique_ptr<std::thread::_State, std::default_delete<std::thread::_State> >, void (*)()) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.33)
+==32088==    by 0x1118BF: groupWorker(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) (in /home/bugra/Desktop/version3/version3_fastest)
+==32088==    by 0x4956DB3: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.33)
+==32088==    by 0x4BB2AA3: start_thread (pthread_create.c:447)
+==32088==    by 0x4C3FA33: clone (clone.S:100)
+==32088== 
+==32088== LEAK SUMMARY:
+==32088==    definitely lost: 0 bytes in 0 blocks
+==32088==    indirectly lost: 0 bytes in 0 blocks
+==32088==      possibly lost: 3,648 bytes in 12 blocks
+==32088==    still reachable: 285,595,056 bytes in 9,115 blocks
+==32088==         suppressed: 0 bytes in 0 blocks
+==32088== Reachable blocks (those to which a pointer was found) are not shown.
+==32088== To see them, rerun with: --leak-check=full --show-leak-kinds=all
+==32088== 
+==32088== For lists of detected and suppressed errors, rerun with: -s
+==32088== ERROR SUMMARY: 3 errors from 3 contexts (suppressed: 0 from 0)

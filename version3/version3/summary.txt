@@ -1,0 +1,37 @@
+
+
+ V2 
+
+✔ Derleyici optimizasyonları (O1, O2, O3) uygulanmıştır.  
+✔ `constexpr`, `const`, ve `vector` yapıları etkin şekilde kullanılmıştır.  
+✔ Ancak, tüm işlem tek bir thread üzerinde yapılır.  
+✘ CPU çekirdekleri efektif kullanılmaz.  
+✘ Büyük veri kümelerinde yavaş çalışır.
+
+--------------------------------------------------------------------
+
+ V3 
+
+✔ Her grup (`group1`, `group2`) için birer parent thread başlatılır.  
+✔ Her parent, 5 child thread oluşturur (toplam 2 parent + 10 child = 12 thread).  
+✔ Her child thread, belirli sayıda `.ppm` dosyasını işler.  
+✔ `std::thread` ve `std::mutex` ile senkronizasyon sağlanır.  
+✔ Tüm CPU çekirdekleri yüksek oranda kullanılır.  
+✔ `readPPM` fonksiyonu hızlandırılmıştır (optimize ASCII okuma yapılır).  
+✔ Performans, V2'ye göre çok daha iyidir.
+
+--------------------------------------------------------------------
+
+🔹 PERFORMANS FARKI:
+
+• V2: Ortalama CPU kullanımı %30-40 civarındadır.  
+• V3: CPU kullanımı %90+ seviyelerine ulaşır.  
+• V3 ile analiz süresi büyük veri setlerinde belirgin şekilde azalır.  
+• V3, Valgrind ve GProf analiz araçlarıyla test edilmiş ve bellek yönetiminde ciddi hata görülmemiştir.
+
+--------------------------------------------------------------------
+
+• g++ ile -O3, -pg, -march=native gibi optimizasyon bayrakları  
+• `std::thread`, `std::mutex`, `vector`, `filesystem`  
+• Terminal bazlı mpstat, Valgrind, GProf, Time ölçümleri  
+
